@@ -1,0 +1,29 @@
+{
+  "name": "opensource-copy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "test": "pnpm run --parallel -r test"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/jest": "latest",
+    "babel-jest": "latest",
+    "codecov": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "standard-version": "latest",
+    "ts-jest": "latest",
+    "expect-type": "^0.13.0",
+    "typescript": "latest",
+    "unbuild": "latest"
+  },
+  "author": "wynn719",
+  "packageManager": "pnpm@7.9.0",
+  "license": "MIT"
+}
