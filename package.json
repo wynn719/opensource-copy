@@ -13,13 +13,14 @@
   "keywords": [],
   "devDependencies": {
     "@types/jest": "latest",
+    "@types/node": "^18.7.6",
     "babel-jest": "latest",
     "codecov": "latest",
     "eslint": "latest",
+    "expect-type": "^0.13.0",
     "jest": "latest",
     "standard-version": "latest",
     "ts-jest": "latest",
-    "expect-type": "^0.13.0",
     "typescript": "latest",
     "unbuild": "latest"
   },
