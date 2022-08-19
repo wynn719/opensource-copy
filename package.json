@@ -23,7 +23,8 @@
     "standard-version": "latest",
     "ts-jest": "latest",
     "typescript": "latest",
-    "unbuild": "latest"
+    "unbuild": "latest",
+    "cross-env": "^7.0.3"
   },
   "author": "wynn719",
   "packageManager": "pnpm@7.9.0",
