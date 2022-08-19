@@ -8,6 +8,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "lint": "pnpm run --parallel -r lint",
     "test": "pnpm run --parallel -r test"
   },
   "keywords": [],
