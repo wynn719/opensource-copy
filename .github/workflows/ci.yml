@@ -1,6 +1,20 @@
 name: ci
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - feat/*
+  pull_request:
+
+# Using concurrency to cancel any in-progress job or run
+# When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress,
+# the queued job or workflow will be pending. Any previously pending job or workflow in the concurrency group will be canceled.
+# To also cancel any currently running job or workflow in the same concurrency group, specify cancel-in-progress: true.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -14,8 +28,8 @@ jobs:
         with:
           node-version: '16'
 
-      - uses: pnpm/action-setup@v2.0.1
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
         id: pnpm-install
         with:
           version: 7
@@ -26,8 +40,8 @@ jobs:
         run: |
           echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
 
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -36,5 +50,5 @@ jobs:
 
       - run: pnpm install
       - run: pnpm lint
-      - run: pnpm jest
-      - uses: codecov/codecov-action@v3
+      - run: pnpm test
+      # - uses: codecov/codecov-action@v3
