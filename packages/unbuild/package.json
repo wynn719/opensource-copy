@@ -1,0 +1,24 @@
+{
+  "name": "unbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "./dist/cli.js",
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint --ext .ts src",
+    "test": "pnpm lint && pnpm jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hookable": "workspace:^5.1.1",
+    "rollup": "^2.70.1"
+  },
+  "devDependencies": {
+    "consola": "^2.15.3",
+    "pathe": "^0.3.5",
+    "vitest": "^0.22.1"
+  }
+}
